@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366F1;
+  --color-secondary: #8B5CF6;
+  --color-accent: #06B6D4;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+  --color-background: #0F172A;
+  --color-card: #1E293B;
+  --color-text: #F8FAFC;
+
+  --font-sans: 'Inter', sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+@layer base {
+  :root.light {
+    --color-background: #F1F5F9;
+    --color-card: #FFFFFF;
+    --color-text: #0F172A;
+  }
+
+  body {
+    @apply bg-background text-text font-sans antialiased transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-white/10 shadow-xl rounded-2xl;
+  }
+  
+  .glass-input {
+    @apply bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-text;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-lg hover:opacity-90 transition-opacity;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
